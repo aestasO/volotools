@@ -29,22 +29,21 @@
             </Grid.RowDefinitions>
             <DockPanel>
                 <Image DockPanel.Dock="Top" Source="/assets/VideoDownloader/banner.png" MinWidth="200" Margin="0,10" />
-                <Label DockPanel.Dock="Top" Content="ダウンロードにはyt-dlpを使用しています。yt-dlpの開発者に感謝します。" FontSize="12" FontWeight="Normal" Margin="0,2,0,20" HorizontalAlignment="Right" Padding="0,0,0,0" FontStyle="Italic" Foreground="#FF636363" />
                 <Grid DockPanel.Dock="Top" Margin="0,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="Dir" materialDesign:HintAssist.Hint="Directory" Grid.ColumnSpan="1" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundDark}"/>
-                    <Button Content="参照" Click="DirSelectorButton_Click" HorizontalAlignment="Right" Grid.Column="2" FontWeight="Normal" Foreground="{DynamicResource Foreground}" Background="{DynamicResource BackgroundLight}" BorderBrush="Transparent"/>
+                    <TextBox x:Name="Dir" materialDesign:HintAssist.Hint="{x:Static properties:Resources.Directory}" Grid.ColumnSpan="1" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundDark}"/>
+                    <Button Content="{x:Static properties:Resources.Sansho}" Click="DirSelectorButton_Click" HorizontalAlignment="Right" Grid.Column="2" FontWeight="Normal" Foreground="{DynamicResource Foreground}" Background="{DynamicResource BackgroundLight}" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid DockPanel.Dock="Top" Margin="0,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="VideoURL" materialDesign:HintAssist.Hint="URL" Grid.ColumnSpan="1" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundDark}"/>
-                    <Button Content="Download" Click="DownloadButton_Click" HorizontalAlignment="Right" Grid.Column="2" FontWeight="Normal" Foreground="{DynamicResource Foreground}" Background="{DynamicResource BackgroundLight}" BorderBrush="Transparent" />
+                    <TextBox x:Name="VideoURL" materialDesign:HintAssist.Hint="{x:Static properties:Resources.URL}" Grid.ColumnSpan="1" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundDark}"/>
+                    <Button Content="{x:Static properties:Resources.Download}" Click="DownloadButton_Click" HorizontalAlignment="Right" Grid.Column="2" FontWeight="Normal" Foreground="{DynamicResource Foreground}" Background="{DynamicResource BackgroundLight}" BorderBrush="Transparent" />
                 </Grid>
             </DockPanel>
 

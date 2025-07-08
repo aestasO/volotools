@@ -30,8 +30,8 @@ namespace volotools.Tools
         public VideoDownloader()
         {
             InitializeComponent();
-            DownloadVideos = new ObservableCollection<DownloadVideoClass>();
-            this.DataContext = this;
+            DownloadVideos = [];
+            DataContext = this;
             Dir.Text = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\";
         }
 
@@ -44,10 +44,8 @@ namespace volotools.Tools
             // テキストが空でない場合のみ処理
             if (!string.IsNullOrEmpty(url) && !string.IsNullOrEmpty(dir))
             {
-
                 // 非同期でダウンロード処理を実行
                 await DownloadVideo(url,dir);
-
             }
         }
 
@@ -63,7 +61,7 @@ namespace volotools.Tools
                 VideoURL.Clear();
 
                 // Itemsコレクションにデータを追加
-                DownloadVideoClass downloadVideo = new DownloadVideoClass { };
+                DownloadVideoClass downloadVideo = new() { };
                 DownloadVideos.Add(downloadVideo);
                 downloadVideo.VideoTitle.Value = url;
                 downloadVideo.Icon.Value = "ProgressDownload";
@@ -71,17 +69,18 @@ namespace volotools.Tools
                 // タイトルを設定
                 string ytDlpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Resources\yt-dlp.exe");
                 string arguments = $"--get-title {url}"; // yt-dlp に渡す引数（出力先を指定）
-                Process process1 = new Process();
-                process1.StartInfo = new ProcessStartInfo()
+                Process process1 = new()
                 {
-                    FileName = ytDlpPath,
-                    Arguments = arguments,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
+                    StartInfo = new ProcessStartInfo()
+                    {
+                        FileName = ytDlpPath,
+                        Arguments = arguments,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }
                 };
-
                 process1.OutputDataReceived += (sender, e) =>
                 {
                     // 標準出力から動画タイトルを取得
@@ -90,7 +89,6 @@ namespace volotools.Tools
                         downloadVideo.VideoTitle.Value = SanitizeFileName(e.Data);
                     }
                 };
-
                 process1.ErrorDataReceived += (sender, e) =>
                 {
                     if (e.Data != null)
@@ -117,17 +115,18 @@ namespace volotools.Tools
                 // 出力ファイル名のパターンを指定（一時フォルダ内）
                 arguments = $"-f \"bestaudio[ext=m4a]+bestvideo[ext=mp4]\" --merge-output-format mp4 -o \"{outputFilePath}\" {url}"; // yt-dlp に渡す引数（出力先を指定）
 
-                Process process = new Process();
-                process.StartInfo = new ProcessStartInfo()
+                Process process = new()
                 {
-                    FileName = ytDlpPath,
-                    Arguments = arguments,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
+                    StartInfo = new ProcessStartInfo()
+                    {
+                        FileName = ytDlpPath,
+                        Arguments = arguments,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }
                 };
-
                 process.OutputDataReceived += (sender, e) =>
                 {
                     if (!string.IsNullOrEmpty(e.Data))
@@ -159,7 +158,6 @@ namespace volotools.Tools
                         });
                     }
                 };
-
                 process.ErrorDataReceived += (sender, e) =>
                 {
                     if (e.Data != null)
@@ -223,7 +221,7 @@ namespace volotools.Tools
         public static string SanitizeFileName(string input)
         {
             // ファイル名に使用できない文字を置換
-            string invalidChars = new string(Path.GetInvalidFileNameChars());
+            string invalidChars = new(Path.GetInvalidFileNameChars());
             string sanitized = input;
 
             // 各無効文字を空文字に置き換える
@@ -240,16 +238,13 @@ namespace volotools.Tools
 
         private void DirSelectorButton_Click(object sender, RoutedEventArgs e)
         {
-            using (var dialog = new FolderBrowserDialog())
-            {
-                dialog.Description = "保存先のフォルダを選択してください";
-                dialog.ShowNewFolderButton = true;
-                DialogResult result = dialog.ShowDialog();
+            using var dialog = new FolderBrowserDialog();
+            dialog.ShowNewFolderButton = true;
+            DialogResult result = dialog.ShowDialog();
 
-                if (result == System.Windows.Forms.DialogResult.OK)
-                {
-                    Dir.Text = dialog.SelectedPath;
-                }
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                Dir.Text = dialog.SelectedPath;
             }
         }
     }

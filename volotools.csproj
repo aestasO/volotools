@@ -12,7 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="appcast.xml" />
     <None Remove="assets\VideoDownloader\banner.png" />
     <None Remove="banner.png" />
     <None Remove="Resources\Updater.dll" />
@@ -22,17 +21,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Remove="Resources\Themes\TealDark.xaml" />
+    <Resource Include="Version.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="NewestVersion.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Updater.exe">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <Content Include="Updater.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\yt-dlp.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="VoloTools.ico" />
+    <Content Include="VoloTools.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -40,13 +46,14 @@
     <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
     <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReactiveProperty" Version="9.7.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="appcast.xml" />
-    <Resource Include="assets\VideoDownloader\banner.png" />
-    <Resource Include="Resources\Themes\TealDark.xaml" />
+    <Resource Include="assets\VideoDownloader\banner.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -59,7 +66,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

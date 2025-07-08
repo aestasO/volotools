@@ -20,16 +20,14 @@ namespace volotools
         }
         public void CloseTab(object sender, RoutedEventArgs e) // タブを閉じる
         {
-            System.Windows.Controls.Button? closeButton = sender as System.Windows.Controls.Button;
-            if (closeButton != null)
+            if (sender is Button closeButton)
             {
                 // ボタンが属するタブアイテムを取得
-                TabItem ?tabItem = FindAncestor<TabItem>(closeButton);
+                TabItem? tabItem = FindAncestor<TabItem>(closeButton);
                 if (tabItem != null)
                 {
                     // タブコントロールを取得
-                    System.Windows.Controls.TabControl? tabControl = tabItem.Parent as System.Windows.Controls.TabControl;
-                    if (tabControl != null)
+                    if (tabItem.Parent is TabControl tabControl)
                     {
                         // タブのインデックスを取得
                         int tabIndex = tabControl.Items.IndexOf(tabItem);
@@ -45,7 +43,7 @@ namespace volotools
                 }
             }
         }
-        private T? FindAncestor<T>(DependencyObject? current) where T : DependencyObject
+        private static T? FindAncestor<T>(DependencyObject? current) where T : DependencyObject
         {
             while (current != null)
             {
@@ -54,8 +52,7 @@ namespace volotools
 
                 // GetParent も null 返す可能性があるので対策
                 DependencyObject? parent = VisualTreeHelper.GetParent(current);
-                if (parent == null)
-                    parent = LogicalTreeHelper.GetParent(current);
+                parent ??= LogicalTreeHelper.GetParent(current);
 
                 current = parent;
             }
@@ -64,18 +61,22 @@ namespace volotools
         }
         public void AddTab(object sender, RoutedEventArgs e) // 新しいタブを追加
         {
-            var newTab = new System.Windows.Controls.TabItem();
-            newTab.Style = (Style)this.FindResource("NewTab");
-            newTab.Content = new System.Windows.Controls.TextBlock { Text = "This is a new tab." };
+            var newTab = new TabItem
+            {
+                Style = (Style)this.FindResource("NewTab"),
+                Content = new TextBlock { Text = "This is a new tab." }
+            };
             tabControl.Items.Insert(tabControl.Items.Count - 1, newTab);
             tabControl.SelectedItem = newTab;
 
         }
         public void AddWindow(object sender, RoutedEventArgs e)
         {
-            var newTab = new System.Windows.Controls.TabItem();
-            newTab.Style = (Style)this.FindResource("NewTab");
-            newTab.Content = new System.Windows.Controls.TextBlock { Text = "VideoDownloader" };
+            var newTab = new TabItem
+            {
+                Style = (Style)this.FindResource("NewTab"),
+                Content = new TextBlock { Text = "VideoDownloader" }
+            };
             tabControl.Items.Insert(tabControl.Items.Count - 1, newTab);
             tabControl.SelectedItem = newTab;
         }
@@ -91,7 +92,7 @@ namespace volotools
                 int nextIndex = (tabControl.SelectedIndex + switchDirection + tabControl.Items.Count) % tabControl.Items.Count;
 
                 // addTabをスキップ
-                if (((TabItem)tabControl.Items[nextIndex]).Name?.ToString() == "addTab")
+                if (((TabItem)tabControl.Items[nextIndex]).Tag?.ToString() == "addTab")
                 {
                     nextIndex = (tabControl.SelectedIndex + switchDirection + tabControl.Items.Count) % tabControl.Items.Count;
                 }

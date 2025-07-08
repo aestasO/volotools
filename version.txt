@@ -1,5 +1,0 @@
-{
-  "version": "0.0.0",
-  "url": "https://github.com/aestasO/volotools/releases/download/v0.0.0/VoloTools.zip",
-  "notes": "‚±‚ê‚ªƒm[ƒg"
-}

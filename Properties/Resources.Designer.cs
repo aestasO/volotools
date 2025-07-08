@@ -22,7 +22,7 @@ namespace volotools.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace volotools.Properties {
         ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("volotools.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace volotools.Properties {
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,11 +61,65 @@ namespace volotools.Properties {
         }
         
         /// <summary>
+        ///   フォルダ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Directory {
+            get {
+                return ResourceManager.GetString("Directory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ダウンロード に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Download {
+            get {
+                return ResourceManager.GetString("Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   メニュー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   新しいワークスペース に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string NewTab {
+        public static string NewWorkspace {
             get {
-                return ResourceManager.GetString("NewTab", resourceCulture);
+                return ResourceManager.GetString("NewWorkspace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   参照 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Sansho {
+            get {
+                return ResourceManager.GetString("Sansho", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   URL に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string URL {
+            get {
+                return ResourceManager.GetString("URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   動画ダウンローダー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string VideoDownloader {
+            get {
+                return ResourceManager.GetString("VideoDownloader", resourceCulture);
             }
         }
     }

@@ -19,7 +19,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.NewTab}" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                            <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.NewWorkspace}" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0" Foreground="{DynamicResource Primary}"/>
                             <Button Grid.Column="2" x:Name="CloseButton" Width="16" Height="16" Click="CloseTab" Padding="0,0,0,0" Style="{DynamicResource MaterialDesignToolButton}" Margin="7,7,7,7" Opacity="0" >
                                 <materialDesign:PackIcon Kind="Close"/>
                             </Button>
@@ -57,11 +57,11 @@
         </Style>
     </UserControl.Resources>
 
-    <TabControl x:Name="tabControl" HorizontalContentAlignment="Left">
+    <TabControl x:Name="tabControl" HorizontalContentAlignment="Left" BorderBrush="{DynamicResource Primary}">
         <TabItem Style="{StaticResource NewTab}">
             <tools:VideoDownloader />
         </TabItem>
-        <TabItem Style="{StaticResource AddTab}"/>
+        <TabItem Style="{StaticResource AddTab}" Margin="0,0,40,0"/>
     </TabControl>
 
 </UserControl>

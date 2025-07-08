@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NewTab" xml:space="preserve">
+  <data name="Directory" xml:space="preserve">
+    <value>directory</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>download</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="NewWorkspace" xml:space="preserve">
     <value>new workspace</value>
+  </data>
+  <data name="Sansho" xml:space="preserve">
+    <value>sansho</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="VideoDownloader" xml:space="preserve">
+    <value>Video Downloader</value>
   </data>
 </root>

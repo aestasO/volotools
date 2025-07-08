@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NewTab" xml:space="preserve">
+  <data name="Directory" xml:space="preserve">
+    <value>フォルダ</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>メニュー</value>
+  </data>
+  <data name="NewWorkspace" xml:space="preserve">
     <value>新しいワークスペース</value>
+  </data>
+  <data name="Sansho" xml:space="preserve">
+    <value>参照</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="VideoDownloader" xml:space="preserve">
+    <value>動画ダウンローダー</value>
   </data>
 </root>

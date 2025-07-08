@@ -12,14 +12,14 @@
         <Grid>
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Menu" Width="30" Height="30" Margin="5" VerticalContentAlignment="Center" Foreground="{DynamicResource ForegroundDark}"/>
-                <TextBlock Text="Menu" VerticalAlignment="Center" Margin="5" Foreground="{DynamicResource Foreground}"/>
+                <TextBlock Text="{x:Static properties:Resources.Menu}" VerticalAlignment="Center" Margin="5" Foreground="{DynamicResource Foreground}"/>
             </StackPanel>
             <Button x:Name="Menu" Click="MenuIcon_Click" BorderBrush="{x:Null}" Background="{x:Null}" Height="40"/>
         </Grid>
         <Grid>
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Movie" Width="30" Height="30" Margin="5" Foreground="{DynamicResource Primary}" VerticalContentAlignment="Center"/>
-                <TextBlock Text="Video downloader" VerticalAlignment="Center" Margin="5" Foreground="{DynamicResource Foreground}"/>
+                <TextBlock Text="{x:Static properties:Resources.VideoDownloader}" VerticalAlignment="Center" Margin="5" Foreground="{DynamicResource Foreground}"/>
             </StackPanel>
             <Button x:Name="VideoDownloader" Click="ToolIcon_Click" BorderBrush="{x:Null}" Background="{x:Null}"/>
         </Grid>

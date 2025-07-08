@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows;
-using System.Windows.Input;
-using System.Windows.Media.Effects;
-using System.Windows.Media;
-using MahApps.Metro.Controls;
 
 
 namespace volotools
 {
     public partial class SideMenu : System.Windows.Controls.UserControl
     {
-        public MainTabs MainTabs { get; set; }
+        public required MainTabs MainTabs { get; set; }
         public SideMenu()
         {
             InitializeComponent();
@@ -35,7 +27,7 @@ namespace volotools
             };
 
             // アニメーションを適用する対象を設定
-            Storyboard storyboard = new Storyboard();
+            Storyboard storyboard = new();
 
             // StackPanelのWidthにアニメーションを適用
             storyboard.Children.Add(widthAnimation);
@@ -51,7 +43,6 @@ namespace volotools
 
         private void ToolIcon_Click(object sender, RoutedEventArgs e)
         {
-            // TabControlのインスタンスを探して、関数を呼び出す
             MainTabs.AddWindow(sender, e);
         }
 

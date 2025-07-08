@@ -1,12 +1,11 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="Background" Color="#2c2d32"/>
-    <SolidColorBrush x:Key="BackgroundLight" Color="#393a41"/>
-    <SolidColorBrush x:Key="BackgroundDark" Color="#242429"/>
+    <SolidColorBrush x:Key="Background" Color="#FF2C3232"/>
+    <SolidColorBrush x:Key="BackgroundLight" Color="#FF394140"/>
+    <SolidColorBrush x:Key="BackgroundDark" Color="#FF242928"/>
     <SolidColorBrush x:Key="Foreground" Color="#ffffff"/>
-    <SolidColorBrush x:Key="ForegroundDark" Color="#c2c3c7"/>
-    <SolidColorBrush x:Key="Separator" Color="#3e3f45"/>
-    <SolidColorBrush x:Key="Primary" Color="#009688"/>
-
+    <SolidColorBrush x:Key="ForegroundDark" Color="#FFC2C7C6"/>
+    <SolidColorBrush x:Key="Separator" Color="#FF3E4544"/>
+    <SolidColorBrush x:Key="Primary" Color="#FF009688"/>
 </ResourceDictionary>
